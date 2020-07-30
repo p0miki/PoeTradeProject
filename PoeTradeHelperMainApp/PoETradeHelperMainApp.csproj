@@ -135,16 +135,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\monitor\Gma.UserActivityMonitor\Gma.UserActivityMonitor.csproj">
-      <Project>{f52aa97e-180a-40ed-8f2b-09080171d6c7}</Project>
-      <Name>Gma.UserActivityMonitor</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Images\Chaos.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Exalt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\monitor\Gma.UserActivityMonitor\Gma.UserActivityMonitor.csproj">
+      <Project>{f52aa97e-180a-40ed-8f2b-09080171d6c7}</Project>
+      <Name>Gma.UserActivityMonitor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

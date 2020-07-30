@@ -14,6 +14,7 @@ using webTest.Classes;
 using Gma.UserActivityMonitor;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.IO;
 
 namespace webTest
 {
@@ -48,28 +49,11 @@ namespace webTest
             InitializeComponent();
             SniperController = new WebSearchController(this, frmItemLists);
             tmrTest.Tick += tmrTest_Tick;
-
         }
 
         private void tmrTest_Tick(object sender, EventArgs e)
         {
             tmrTest.Enabled = false;
-            Process[] PoEs = Process.GetProcessesByName("PathOfExile_x64");
-
-            if (PoEs.Length == 0)
-                return;
-
-            if (PoEs[0] != null)
-            {
-                IntPtr powWindow = PoEs[0].MainWindowHandle;
-
-                //PostMessage(powWindow, WM_KEYDOWN, (IntPtr)(Keys.I), (IntPtr)1);
-                //PostMessage(powWindow, WM_KEYUP, (IntPtr)(Keys.I), (IntPtr)1);
-                PostMessage(powWindow, WM_KEYDOWN, (IntPtr)(Keys.I), (IntPtr)1);
-                PostMessage(powWindow, WM_KEYUP, (IntPtr)(Keys.I), (IntPtr)1);
-
-            }
-
         }
 
         private void Form1_Load(object sender, EventArgs e)

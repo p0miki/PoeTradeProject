@@ -10,6 +10,8 @@ using CefSharp;
 using CefSharp.WinForms;
 using System.Xml.Schema;
 using Priority_Queue;
+using System.Windows.Forms;
+using System.IO;
 
 namespace webTest.Classes
 {
@@ -27,18 +29,17 @@ namespace webTest.Classes
 
         public WebSearchController(frmWebHost mainForm, frmItemLists itemListsForm)
         {
+            CefSettings setting = new CefSettings();
             this.MainForm = mainForm;
-            this.frmItemLists = itemListsForm; 
+            this.frmItemLists = itemListsForm;
             HookManager.MouseWheel += HookManager_MouseWheel;
             HookManager.KeyUp += HookManager_KeyUp;
 
-            CefSettings setting = new CefSettings();
+                
             setting.RemoteDebuggingPort = 8088;
             setting.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
             CefSharpSettings.LegacyJavascriptBindingEnabled = true;
-
             Cef.Initialize(setting);
-
         }
 
         private void HookManager_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
