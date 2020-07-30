@@ -16,7 +16,7 @@ namespace webTest
     {
         public frmItemLists()
         {
-            InitializeComponent();
+            InitializeComponent(); //
             foreach (DataGridViewColumn item in dgvLiveSearchItem.Columns)
             {
                 item.SortMode = DataGridViewColumnSortMode.NotSortable;
