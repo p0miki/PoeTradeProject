@@ -8,15 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using webTest.Classes;
+using PoETradeHelper.Classes;
 
-namespace webTest
+namespace PoETradeHelper
 {
     public partial class frmItemLists : Form
     {
         public frmItemLists()
         {
-            InitializeComponent(); //
+            InitializeComponent(); 
             foreach (DataGridViewColumn item in dgvLiveSearchItem.Columns)
             {
                 item.SortMode = DataGridViewColumnSortMode.NotSortable;

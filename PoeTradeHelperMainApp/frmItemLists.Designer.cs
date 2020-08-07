@@ -1,6 +1,6 @@
-﻿using webTest.Controls;
+﻿using PoETradeHelper.Controls;
 
-namespace webTest
+namespace PoETradeHelper
 {
     partial class frmItemLists
     {
@@ -33,11 +33,11 @@ namespace webTest
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItemLists));
             this.chkAlwaysOnTop = new System.Windows.Forms.CheckBox();
             this.tabLiveSearch = new System.Windows.Forms.TabPage();
-            this.dgvLiveSearchItem = new webTest.Controls.ItemGridView();
+            this.dgvLiveSearchItem = new PoETradeHelper.Controls.ItemGridView();
 
             this.tabGrids = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dgvBulkSearchItems = new webTest.Controls.ItemGridView();
+            this.dgvBulkSearchItems = new PoETradeHelper.Controls.ItemGridView();
             this.tabLiveSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLiveSearchItem)).BeginInit();
             this.tabGrids.SuspendLayout();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using webTest.Controls;
+using PoETradeHelper.Controls;
 using System.Collections.Concurrent;
 using Gma.UserActivityMonitor;
 using CefSharp;
@@ -13,7 +13,7 @@ using Priority_Queue;
 using System.Windows.Forms;
 using System.IO;
 
-namespace webTest.Classes
+namespace PoETradeHelper.Classes
 {
     public class WebSearchController
     {
@@ -21,10 +21,13 @@ namespace webTest.Classes
         SimplePriorityQueue<BulkTradeInfo> BulkTradeQueue = new SimplePriorityQueue<BulkTradeInfo>();
         frmWebHost MainForm = null;
         frmItemLists frmItemLists = null;
-        //ConcurrentQueue<TradeInfo> TradesQueue = new ConcurrentQueue<TradeInfo>();
         ConcurrentDictionary<int, int> KeyFlags = new ConcurrentDictionary<int, int>(2, 2);
         WindowsInput.InputSimulator inputSim = new WindowsInput.InputSimulator();
-        //ConcurrentQueue<BulkTradeInfo> BulkTradeQueue = new ConcurrentQueue<BulkTradeInfo>();
+        public Keys LiveSearchMsgKey { get; set; }
+        public Keys BulkSearchMsgKey { get; set; }
+        public Keys ClearListsKey { get; set; }
+
+
         double BulkTradeMaxUnitPrice { get; set; }
 
         public WebSearchController(frmWebHost mainForm, frmItemLists itemListsForm)
@@ -32,10 +35,12 @@ namespace webTest.Classes
             CefSettings setting = new CefSettings();
             this.MainForm = mainForm;
             this.frmItemLists = itemListsForm;
-            HookManager.MouseWheel += HookManager_MouseWheel;
+            LiveSearchMsgKey = Keys.PageDown;
+            BulkSearchMsgKey = Keys.F3;
+            ClearListsKey = Keys.F4;
+
             HookManager.KeyUp += HookManager_KeyUp;
 
-                
             setting.RemoteDebuggingPort = 8088;
             setting.CachePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\CEF";
             CefSharpSettings.LegacyJavascriptBindingEnabled = true;
@@ -44,18 +49,18 @@ namespace webTest.Classes
 
         private void HookManager_KeyUp(object sender, System.Windows.Forms.KeyEventArgs e)
         {
-            if (e.KeyCode == System.Windows.Forms.Keys.F4)
+            if (e.KeyCode == ClearListsKey)
             {
                 BulkTradeQueue.Clear();
                 TradesQueue.Clear();
                 frmItemLists.ClearLists();
             }
-            if (e.KeyCode ==  System.Windows.Forms.Keys.PageDown)
+            if (e.KeyCode == this.LiveSearchMsgKey)
             {
                 Task t = this.SendMessage();
 
             }
-            if (e.KeyCode == System.Windows.Forms.Keys.F3) 
+            if (e.KeyCode == this.BulkSearchMsgKey) 
             {
                 if (BulkTradeQueue.Count > 0)
                 {
@@ -104,11 +109,6 @@ namespace webTest.Classes
             }
         }
 
-        private void HookManager_MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            
-        }
-
 
         public WebClientControl AddNewSniper()
         {
@@ -125,8 +125,11 @@ namespace webTest.Classes
                 if (item.PricePerSingleUnit <= maxUnitPrice)
                 {
                     item.MaxAmountToBuy = maxaAmountToBuy;
-                    BulkTradeQueue.Enqueue(item, 0);
-                    actualTrades.Add(item);
+                    if ((item.BuyAllPrice > 0) && (item.AmountYouGetD > 0))
+                    {
+                        BulkTradeQueue.Enqueue(item, 0);
+                        actualTrades.Add(item);
+                    }
                 }
             }
             frmItemLists.AddBulkSearchItem(actualTrades.ToArray());

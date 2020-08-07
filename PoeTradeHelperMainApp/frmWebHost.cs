@@ -1,22 +1,15 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
-using webTest.Controls;
-using webTest.Classes;
+using PoETradeHelper.Controls;
+using PoETradeHelper.Classes;
 using Gma.UserActivityMonitor;
 using System.Runtime.InteropServices;
-using System.Diagnostics;
-using System.IO;
+using IniParser;
+using IniParser.Model;
 
-namespace webTest
+namespace PoETradeHelper
 {
 
 
@@ -28,45 +21,46 @@ namespace webTest
         [DllImport("kernel32.dll")]
         public static extern int FreeLibrary(IntPtr lib);
 
-        [DllImport("user32.dll", EntryPoint = "FindWindowEx")]
-        public static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
-        [DllImport("User32.dll")]
-        public static extern IntPtr PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
-
-
-        const uint WM_KEYDOWN = 0x100;
-        const uint WM_KEYUP = 0x0101;
 
         WebSearchController SniperController;
-        Timer tmrTest = new Timer();
 
         int tabIndexKey = 0;
-        private frmItemLists frmItemLists = new frmItemLists();
-
+        private frmItemLists ItemListsWindow = new frmItemLists();
+        bool bSettingLiveKey = false;
+        bool bSettingBulkKey = false;
+        bool bSettingClearListsKey = false;
+        IniData iniConfigData;
+        FileIniDataParser iniParser = new FileIniDataParser();
 
         public frmWebHost()
         {
             InitializeComponent();
-            SniperController = new WebSearchController(this, frmItemLists);
-            tmrTest.Tick += tmrTest_Tick;
-        }
+            SniperController = new WebSearchController(this, ItemListsWindow);
 
-        private void tmrTest_Tick(object sender, EventArgs e)
-        {
-            tmrTest.Enabled = false;
+            iniConfigData = iniParser.ReadFile("PoETradeHelperConfig.ini");
+            SniperController.LiveSearchMsgKey = (Keys)int.Parse(iniConfigData["Keys"]["LiveSearchMsgKey"]);
+            SniperController.BulkSearchMsgKey = (Keys)int.Parse(iniConfigData["Keys"]["BulkSearchMsgKey"]);
+            SniperController.ClearListsKey= (Keys)int.Parse(iniConfigData["Keys"]["ClearMsgLists"]);
+            btnSetBulkSearchMsgKey.Text = SniperController.BulkSearchMsgKey.ToString();
+            btnSetLiveSearchMsgKey.Text = SniperController.LiveSearchMsgKey.ToString();
+            btnSetClearListKey.Text = SniperController.ClearListsKey.ToString();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             HookManager.MarshalLib = LoadLibrary("user32.dll");
-            frmItemLists.Show();
+            ItemListsWindow.Show();
             
-
         }
 
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+
+            iniConfigData["Keys"]["LiveSearchMsgKey"] = ((int)SniperController.LiveSearchMsgKey).ToString();
+            iniConfigData["Keys"]["BulkSearchMsgKey"] = ((int)SniperController.BulkSearchMsgKey).ToString();
+            iniConfigData["Keys"]["ClearMsgLists"] = ((int)SniperController.ClearListsKey).ToString();
+            iniParser.WriteFile("PoETradeHelperConfig.ini", iniConfigData);
             FreeLibrary(HookManager.MarshalLib);
             Cef.Shutdown();
         }
@@ -81,22 +75,97 @@ namespace webTest
             webControl.WebBind();
 
             tabIndexKey++;
-            
-
-        }
-
-        private void cmdSendKeyTest_Click(object sender, EventArgs e)
-        {
-
-            tmrTest.Interval = 2000;
-            tmrTest.Enabled = true; 
-
-
         }
 
         private void chkAlwaysOnTop_CheckedChanged(object sender, EventArgs e)
         {
             this.TopMost = chkAlwaysOnTop.Checked;
+        }
+
+        private void btnSetLiveSearchMsgKey_Click(object sender, EventArgs e)
+        {
+            bSettingLiveKey = !bSettingLiveKey;
+            if (bSettingLiveKey)
+            {
+                btnSetLiveSearchMsgKey.Text = "Press any key";
+            }
+            else
+            {
+                btnSetLiveSearchMsgKey.Text = SniperController.LiveSearchMsgKey.ToString();
+            }
+        }
+
+        private void FrmWebHost_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (bSettingLiveKey)
+            {
+                bSettingLiveKey = false;
+                btnSetLiveSearchMsgKey.Text = e.KeyCode.ToString();
+                SniperController.LiveSearchMsgKey = e.KeyCode;
+            }
+            else
+            {
+                if (bSettingBulkKey)
+                {
+                    bSettingBulkKey = false;
+                    btnSetBulkSearchMsgKey.Text = e.KeyCode.ToString();
+                    SniperController.BulkSearchMsgKey = e.KeyCode; 
+                }
+                else if (bSettingClearListsKey)
+                {
+                    bSettingClearListsKey = false;
+                    btnSetClearListKey.Text = e.KeyCode.ToString();
+                    SniperController.ClearListsKey = e.KeyCode;
+                }
+            }
+        }
+
+        private void btnSetBulkSearchMsgKey_Click(object sender, EventArgs e)
+        {
+            bSettingBulkKey = !bSettingBulkKey;
+            if (bSettingBulkKey)
+            {
+                btnSetBulkSearchMsgKey.Text = "Press any key";
+            }
+            else
+            {
+                btnSetBulkSearchMsgKey.Text = SniperController.BulkSearchMsgKey.ToString();
+            }
+        }
+
+        private void btnSetClearListKey_Click(object sender, EventArgs e)
+        {
+            bSettingClearListsKey = !bSettingClearListsKey;
+            if (bSettingClearListsKey)
+            {
+                btnSetClearListKey.Text = "Press any key";
+            }
+            else
+            {
+                btnSetClearListKey.Text = SniperController.ClearListsKey.ToString();
+            }
+        }
+
+        private void chkShowListForm_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkShowListForm.Checked)
+                ItemListsWindow.Visible = true;
+            else
+                ItemListsWindow.Visible = false; 
+        }
+
+        private void numOpacity_ValueChanged(object sender, EventArgs e)
+        {
+            this.Opacity = Decimal.ToDouble(numOpacity.Value / 100);
+            ItemListsWindow.Opacity = Decimal.ToDouble(numOpacity.Value / 100);
+        }
+
+        private void btnRemoveWeb_Click(object sender, EventArgs e)
+        {
+            if (this.tabWebSnipers.SelectedIndex >= 0)
+            {
+                this.tabWebSnipers.TabPages.RemoveAt(this.tabWebSnipers.SelectedIndex);
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace webTest.Controls
+﻿namespace PoETradeHelper.Controls
 {
     partial class ItemGridView
     {

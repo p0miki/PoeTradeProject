@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
-using webTest.Classes; 
-namespace webTest.Controls
+using PoETradeHelper.Classes;
+using System.Diagnostics;
+
+namespace PoETradeHelper.Controls
 {
     public partial class WebClientControl : UserControl
     {
@@ -32,15 +34,33 @@ namespace webTest.Controls
 
         private void btnMonitor_Click(object sender, EventArgs e)
         {
-            TimeSpan t = new TimeSpan(0, 0, 5);
-            System.IO.StreamReader jsFile = new System.IO.StreamReader("1.txt");
-            string script = jsFile.ReadToEnd();
-            jsFile.Close();
+            int scriptLoaded = 0;
+            string myScript = @"(function () { return typeof(rowsDone);})();";
+            Task<JavascriptResponse> task0 = webClient.EvaluateScriptAsync(myScript);
+            task0.Wait();
+            string s = task0.Result.Result.ToString();
+            if (s.Equals("number"))
+            {
+                scriptLoaded = 1;
+            }
+             
+            if (scriptLoaded == 0)
+            {
+                bSniping = true;
+                TimeSpan t = new TimeSpan(0, 0, 5);
+                System.IO.StreamReader jsFile = new System.IO.StreamReader("1.txt");
+                string script = jsFile.ReadToEnd();
+                jsFile.Close();
 
-            var task1 = webClient.EvaluateScriptAsync(script, t);
+                var task1 = webClient.EvaluateScriptAsync(script, t);
 
-            task1.Wait();
-
+                task1.Wait();
+            }
+            else
+            {
+                string sc1 = "rowsDone = 0;";
+                webClient.EvaluateScriptAsync(sc1);
+            }
         }
 
         public void WebBind()

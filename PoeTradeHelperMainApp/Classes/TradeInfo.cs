@@ -5,7 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace webTest.Classes
+namespace PoETradeHelper.Classes
 {
     public class TradeInfo
     {

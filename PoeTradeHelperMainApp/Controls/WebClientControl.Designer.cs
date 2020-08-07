@@ -1,4 +1,4 @@
-﻿namespace webTest.Controls
+﻿namespace PoETradeHelper.Controls
 {
     partial class WebClientControl
     {
@@ -49,15 +49,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlWeb.Location = new System.Drawing.Point(0, 162);
-            this.pnlWeb.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pnlWeb.Margin = new System.Windows.Forms.Padding(6);
             this.pnlWeb.Name = "pnlWeb";
-            this.pnlWeb.Size = new System.Drawing.Size(2255, 1087);
+            this.pnlWeb.Size = new System.Drawing.Size(1075, 1087);
             this.pnlWeb.TabIndex = 0;
             // 
             // btnMonitor
             // 
-            this.btnMonitor.Location = new System.Drawing.Point(409, 41);
-            this.btnMonitor.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnMonitor.Location = new System.Drawing.Point(829, 36);
+            this.btnMonitor.Margin = new System.Windows.Forms.Padding(6);
             this.btnMonitor.Name = "btnMonitor";
             this.btnMonitor.Size = new System.Drawing.Size(132, 39);
             this.btnMonitor.TabIndex = 8;
@@ -67,8 +67,8 @@
             // 
             // btnMakeBulkList
             // 
-            this.btnMakeBulkList.Location = new System.Drawing.Point(409, 102);
-            this.btnMakeBulkList.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnMakeBulkList.Location = new System.Drawing.Point(829, 106);
+            this.btnMakeBulkList.Margin = new System.Windows.Forms.Padding(6);
             this.btnMakeBulkList.Name = "btnMakeBulkList";
             this.btnMakeBulkList.Size = new System.Drawing.Size(132, 37);
             this.btnMakeBulkList.TabIndex = 10;
@@ -79,7 +79,7 @@
             // lblMaxUnitPrice
             // 
             this.lblMaxUnitPrice.AutoSize = true;
-            this.lblMaxUnitPrice.Location = new System.Drawing.Point(6, 107);
+            this.lblMaxUnitPrice.Location = new System.Drawing.Point(6, 119);
             this.lblMaxUnitPrice.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblMaxUnitPrice.Name = "lblMaxUnitPrice";
             this.lblMaxUnitPrice.Size = new System.Drawing.Size(136, 24);
@@ -99,7 +99,7 @@
             // numMaxAmount2Buy
             // 
             this.numMaxAmount2Buy.Location = new System.Drawing.Point(242, 41);
-            this.numMaxAmount2Buy.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.numMaxAmount2Buy.Margin = new System.Windows.Forms.Padding(6);
             this.numMaxAmount2Buy.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -123,8 +123,8 @@
             // numMaxUnitPrice
             // 
             this.numMaxUnitPrice.DecimalPlaces = 2;
-            this.numMaxUnitPrice.Location = new System.Drawing.Point(242, 102);
-            this.numMaxUnitPrice.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.numMaxUnitPrice.Location = new System.Drawing.Point(242, 114);
+            this.numMaxUnitPrice.Margin = new System.Windows.Forms.Padding(6);
             this.numMaxUnitPrice.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -136,8 +136,8 @@
             // 
             // numPriority
             // 
-            this.numPriority.Location = new System.Drawing.Point(736, 42);
-            this.numPriority.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.numPriority.Location = new System.Drawing.Point(575, 42);
+            this.numPriority.Margin = new System.Windows.Forms.Padding(6);
             this.numPriority.Minimum = new decimal(new int[] {
             1,
             0,
@@ -156,7 +156,7 @@
             // lblPriority
             // 
             this.lblPriority.AutoSize = true;
-            this.lblPriority.Location = new System.Drawing.Point(590, 44);
+            this.lblPriority.Location = new System.Drawing.Point(429, 44);
             this.lblPriority.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPriority.Name = "lblPriority";
             this.lblPriority.Size = new System.Drawing.Size(134, 24);
@@ -167,7 +167,7 @@
             // 
             this.lblPriorityInfo.AutoSize = true;
             this.lblPriorityInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPriorityInfo.Location = new System.Drawing.Point(590, 84);
+            this.lblPriorityInfo.Location = new System.Drawing.Point(429, 84);
             this.lblPriorityInfo.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPriorityInfo.Name = "lblPriorityInfo";
             this.lblPriorityInfo.Size = new System.Drawing.Size(382, 24);
@@ -189,9 +189,9 @@
             this.Controls.Add(this.btnMonitor);
             this.Controls.Add(this.pnlWeb);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "WebClientControl";
-            this.Size = new System.Drawing.Size(2255, 1250);
+            this.Size = new System.Drawing.Size(1075, 1250);
             ((System.ComponentModel.ISupportInitialize)(this.numMaxAmount2Buy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMaxUnitPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPriority)).EndInit();

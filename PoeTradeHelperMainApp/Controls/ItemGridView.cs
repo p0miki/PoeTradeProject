@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using webTest.Classes;
+using PoETradeHelper.Classes;
 
-namespace webTest.Controls
+namespace PoETradeHelper.Controls
 {
     public partial class ItemGridView : DataGridView
     {

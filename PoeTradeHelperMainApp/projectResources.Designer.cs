@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace webTest {
+namespace PoETradeHelper {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace webTest {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("webTest.projectResources", typeof(projectResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PoETradeHelper.projectResources", typeof(projectResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

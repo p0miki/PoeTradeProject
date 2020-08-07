@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:Setup"
+"ProjectName" = "8:SetupProject"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -141,6 +141,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_730CDFDE279C4B68B6E1159037FF1162"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_747ED3C64F9742989DDC789E1F00D729"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -167,6 +173,12 @@
         {
         "MsmKey" = "8:_8CCC005905B34735B93786BF92CD9C05"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8E6B79AEEDAD8A5D2DF52973D629D578"
+        "OwnerKey" = "8:_AEE9490A3639497FA3F891EA5855D87F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -208,13 +220,13 @@
         "Entry"
         {
         "MsmKey" = "8:_C8986A275BAB270237664BFBB82AE92D"
-        "OwnerKey" = "8:_3CC2DB7E65C1411EBBA8BEE9F6503B87"
+        "OwnerKey" = "8:_D10C7246589F48448B96F99412CD6672"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C8986A275BAB270237664BFBB82AE92D"
-        "OwnerKey" = "8:_D10C7246589F48448B96F99412CD6672"
+        "OwnerKey" = "8:_422E8AFBD38E7E1FA39A193CCE7E28CF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -226,7 +238,7 @@
         "Entry"
         {
         "MsmKey" = "8:_C8986A275BAB270237664BFBB82AE92D"
-        "OwnerKey" = "8:_422E8AFBD38E7E1FA39A193CCE7E28CF"
+        "OwnerKey" = "8:_3CC2DB7E65C1411EBBA8BEE9F6503B87"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -292,19 +304,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3509B79C97FDAAFD7402A697B23A818B"
+        "OwnerKey" = "8:_AEE9490A3639497FA3F891EA5855D87F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3CC2DB7E65C1411EBBA8BEE9F6503B87"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0B174B6014974FB397E4F72D74A810D9"
+        "OwnerKey" = "8:_8E6B79AEEDAD8A5D2DF52973D629D578"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -328,19 +334,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3CC2DB7E65C1411EBBA8BEE9F6503B87"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_142C529BD06849F394BDC305E3D509CE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A89FF1585407E0D345092A9CDA5CCC3A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AEE9490A3639497FA3F891EA5855D87F"
+        "OwnerKey" = "8:_0B174B6014974FB397E4F72D74A810D9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -373,6 +379,18 @@
         "OwnerKey" = "8:_C8986A275BAB270237664BFBB82AE92D"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_A89FF1585407E0D345092A9CDA5CCC3A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3509B79C97FDAAFD7402A697B23A818B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -391,6 +409,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -407,6 +441,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -933,6 +983,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_730CDFDE279C4B68B6E1159037FF1162"
+            {
+            "SourcePath" = "8:..\\PoeTradeHelperMainApp\\bin\\Debug\\PoETradeHelperConfig.ini"
+            "TargetName" = "8:PoETradeHelperConfig.ini"
+            "Tag" = "8:"
+            "Folder" = "8:_11AA7DE5CF8A40B4A0EF2CE07C5D1785"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_747ED3C64F9742989DDC789E1F00D729"
             {
             "SourcePath" = "8:..\\PoeTradeHelperMainApp\\bin\\Debug\\x86\\v8_context_snapshot.bin"
@@ -1042,6 +1112,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8E6B79AEEDAD8A5D2DF52973D629D578"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:INIFileParser, Version=2.5.2.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_8E6B79AEEDAD8A5D2DF52973D629D578"
+                    {
+                    "Name" = "8:INIFileParser.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:INIFileParser.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_11AA7DE5CF8A40B4A0EF2CE07C5D1785"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_96057C43EDBA929780B129C588ECE7F4"
@@ -1354,9 +1455,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Setup"
+        "ProductName" = "8:PoE Trade Helper"
         "ProductCode" = "8:{4B4A75D4-99E0-4D95-BF6B-FC58022BBAFE}"
-        "PackageCode" = "8:{F453D51B-111E-4429-859D-E8C5FB780B7C}"
+        "PackageCode" = "8:{95868994-33BD-4F12-AAC8-D1AC4387A3BE}"
         "UpgradeCode" = "8:{8F4EE86C-550E-418B-9EE2-13BB0FD0A139}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -1364,15 +1465,15 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:PoE Non Profit"
+        "Manufacturer" = "8:BurnedOnPoE"
         "ARPHELPTELEPHONE" = "8:"
-        "ARPHELPLINK" = "8:"
+        "ARPHELPLINK" = "8:https://github.com/p0miki/PoeTradeProject"
         "Title" = "8:PoE Trade Helper"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:PoE Non Profit"
+        "ARPCONTACT" = "8:BurnedOnPoE"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
-        "ARPURLINFOABOUT" = "8:"
+        "ARPCOMMENTS" = "8:Send trade messages from live/bulk search to the PoE client without leaving the game."
+        "ARPURLINFOABOUT" = "8:https://github.com/p0miki/PoeTradeProject"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
@@ -1961,7 +2062,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_AEE9490A3639497FA3F891EA5855D87F"
             {
-            "SourcePath" = "8:..\\PoeTradeHelperMainApp\\obj\\Debug\\webTest.exe"
+            "SourcePath" = "8:..\\PoeTradeHelperMainApp\\obj\\Debug\\PoETradeHelper.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_11AA7DE5CF8A40B4A0EF2CE07C5D1785"
