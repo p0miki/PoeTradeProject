@@ -16,11 +16,13 @@ download the setup.zip, unzip and run the setup.exe file.
 Setup DOESN'T create any shortcut, so NOTICE where you install the file. 
 Once setup is done, naviage to the install folder and run 'PoETradeHelper.exe'
 
+How to use the program:
+https://www.youtube.com/watch?v=8mA31qNze_k
+
 If you want to use the live search sniping feature, you will have to log-in to your PoE account. It's highly recommanded that you
 check the "remember me" check box on the PoE login page, otherwise, you will need to re-log in every web tab or after you close/open the program. 
 
-If you use the "remember me" option - this done and manage by the chrome browser. The application itself doesn't save or interact with 
-anything you do on the browser, except when parsing live/bulk search result. 
+If you use the "remember me" option - this done and manage by the chrome browser. The application itself doesn't save or interact with anything you do on the browser, except when parsing live/bulk search result. 
 
 Monetization: None. There is no monetization. The program doesn't read/send any information off the running machine and doesn't save any data other than the application setting. In the future, if people actually use this and want me to add few features, I might
 add a patraeon but that about it. 
@@ -28,5 +30,6 @@ add a patraeon but that about it.
 Known Issues: 
 Once a live seach/sniping is running, if you stop the live search and than re-actiave it, you will need to press the "Snipe" button again in order for the application to monitor the live search web page. 
 
+Have fun and stay sane, exiles. 
 
 
